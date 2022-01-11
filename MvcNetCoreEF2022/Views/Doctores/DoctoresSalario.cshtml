@@ -1,0 +1,44 @@
+﻿@model List<Doctor>
+
+<form method="post">
+    <label>
+        Introducir salario:
+    </label>
+    <input type="text" name="salario" />
+    <button type="submit" class="btn btn-info">
+        Buscar Doctores
+    </button>
+</form>
+
+<h1 style="color:red">
+    @ViewData["mensaje"]
+</h1>
+@if (Model != null)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>HOSPITAL_COD</th>
+                <th>DOCTOR_NO</th>
+                <th>APELLIDO</th>
+                <th>ESPECIALIDAD</th>
+                <th>SALARIO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Doctor d in Model)
+            {
+                <tr>
+                    <td>@d.IdHospital</td>
+                    <td>@d.IdDoctor</td>
+                    <td>@d.Apellido</td>
+                    <td>@d.Especialidad</td>
+                    <td>@d.Salario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
